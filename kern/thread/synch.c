@@ -174,11 +174,14 @@ void
 lock_destroy(struct lock *lock)
 {
 	KASSERT(lock != NULL);
+	KASSERT(!lock->held);
+
 
 	// add stuff here as needed
 
 	kfree(lock->lk_name);
 	wchan_destroy(lock->lk_wchan);
+	spinlock_cleanup(&lock->lk_lock);
 	kfree(lock);
 }
 
