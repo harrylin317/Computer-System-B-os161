@@ -155,7 +155,7 @@ lock_create(const char *name)
 	}
 
 	HANGMAN_LOCKABLEINIT(&lock->lk_hangman, lock->lk_name);
-	//test
+	
 	// add stuff here as needed
 
 	return lock;
